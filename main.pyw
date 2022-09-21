@@ -1,3 +1,4 @@
+from tokenize import Name
 import PySimpleGUI as sg
 from functions import Juros_Simples
 from functions import Juros_Compostos
@@ -58,8 +59,9 @@ while True:
                 j, m = jc.calcular()
                 janela['juros'].update(f'Juros: R${j:.2f}')
                 janela['M'].update(f'Montante: R${m:.2f}')
-        except IndexError:
+        except (IndexError, NameError):
             janela['erro'].update('Por favor selecione uma opção.')
+            sg.popup('Ocorreu um erro confira todos os valores inseridos.')
 
 # Fechar janela
 janela.close()
