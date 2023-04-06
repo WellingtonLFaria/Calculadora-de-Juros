@@ -1,14 +1,12 @@
-from tokenize import Name
 import PySimpleGUI as sg
-from functions import Juros_Simples
-from functions import Juros_Compostos
+from functions import *
 # Tema da Janela
 sg.theme('DarkAmber')
 
 # Layout
 layout = [
             [sg.Text('Juros'), sg.Listbox(('Simples', 'Composto'), size=(10, 2), key='jur'), sg.Text('', text_color='red',key='erro')],
-            [sg.Text("OBS: As grandezas de Taxa de Juros e Tempo devem ser iguais. EX:\n30%.ao mês\nPor 3 meses")],
+            [sg.Text("OBS: As grandezas de Taxa de Juros e Tempo devem ser iguais. EX:\n30%.ao *mês*\nPor 3 *meses*")],
             [sg.Text('Capital Incial(R$):', (13, 1)), sg.Input('1200.00', (7, 1), key='c'), sg.Text('', key='cerro',text_color='red')],
             [sg.Text('Taxa de Juros:', (13, 1)), sg.Input('10', (3, 1), key='i'), sg.Text("%"), sg.Text('', key='ierro',text_color='red')],
             [sg.Text('Tempo:', (13, 1)), sg.Input('15', (4, 1), key='t'), sg.Text('', key='terro', text_color='red')],
